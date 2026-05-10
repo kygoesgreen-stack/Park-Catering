@@ -43,10 +43,14 @@ export function Hero() {
         loop
         playsInline
         webkit-playsInline="true"
+        disablePictureInPicture
+        controls={false}
+        controlsList="nodownload nofullscreen"
         className="absolute inset-0 w-full h-full object-cover"
         poster="/images/hero-poster.jpg"
         preload="auto"
         aria-hidden="true"
+        style={{ WebkitTouchCallout: 'none' }}
       >
         <source src={hero.videoPlaceholder} type="video/mp4" />
       </video>
