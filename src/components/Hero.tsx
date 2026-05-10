@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState } from 'react'
+import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { hero } from '@/config/content'
@@ -20,24 +20,13 @@ const stagger = {
 
 export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
-  const [shouldShowPoster, setShouldShowPoster] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => {
-      const isMobileDevice = /iPhone|iPad|iPod|Android|IEMobile/i.test(navigator.userAgent) || 
-        ('ontouchstart' in window && window.innerWidth < 768)
-      setShouldShowPoster(isMobileDevice)
-    }
-    checkMobile()
-  }, [])
-
-  useEffect(() => {
-    if (videoRef.current && !shouldShowPoster) {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.75
       videoRef.current.play().catch(() => {})
     }
-  }, [shouldShowPoster])
-
-  const posterSrc = shouldShowPoster ? "/images/hero-poster.jpg" : undefined
+  }, [])
 
   return (
     <section
@@ -53,9 +42,10 @@ export function Hero() {
         muted
         loop
         playsInline
+        webkit-playsInline="true"
         className="absolute inset-0 w-full h-full object-cover"
-        poster={posterSrc}
-        preload={shouldShowPoster ? "none" : "auto"}
+        poster="/images/hero-poster.jpg"
+        preload="auto"
         aria-hidden="true"
       >
         <source src={hero.videoPlaceholder} type="video/mp4" />
