@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-forest-900: #1a2e1a;
+    --color-forest-800: #243824;
+    --color-forest-700: #2e472e;
+    --color-forest-600: #3a5a3a;
+    --color-charcoal-900: #1c1c1c;
+    --color-charcoal-800: #2a2a2a;
+    --color-charcoal-700: #3a3a3a;
+    --color-charcoal-600: #4a4a4a;
+    --color-cream-50: #fefdfb;
+    --color-cream-100: #fdf9f0;
+    --color-cream-200: #faf0dc;
+    --color-ember-500: #c85a1e;
+    --color-ember-600: #b04a14;
+    --color-ember-700: #8a3a10;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-50 text-charcoal-800 font-sans;
+    font-size: clamp(1rem, 0.15rem + 1vw, 1.125rem);
+    line-height: 1.7;
+  }
+
+  ::selection {
+    @apply bg-ember-500 text-cream-50;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ember-500;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-cream-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-forest-700 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-forest-600;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply mx-auto max-w-7xl px-6 lg:px-12;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .eyebrow {
+    @apply font-sans text-sm font-medium tracking-[0.15em] uppercase text-ember-500;
+    font-size: 0.75rem;
+  }
+
+  .headline-lg {
+    @apply font-serif font-light leading-[1.05];
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
+  }
+
+  .headline-md {
+    @apply font-serif font-light leading-[1.1];
+    font-size: clamp(2rem, 4vw + 1rem, 3.5rem);
+  }
+
+  .headline-sm {
+    @apply font-serif font-light leading-[1.15];
+    font-size: clamp(1.75rem, 3vw + 1rem, 2.5rem);
+  }
+
+  .body-lg {
+    @apply text-charcoal-700;
+    font-size: clamp(1.0625rem, 0.1rem + 1.2vw, 1.25rem);
+    line-height: 1.8;
+  }
+
+  .pull-quote {
+    @apply font-serif italic font-light leading-relaxed;
+    font-size: clamp(1.375rem, 2vw + 0.75rem, 2rem);
+    color: var(--color-forest-800);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-8 py-4 bg-ember-500 text-cream-50 font-sans font-medium tracking-wide transition-all duration-300 hover:bg-ember-600 active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center gap-2 px-8 py-4 border border-cream-100 text-cream-100 font-sans font-medium tracking-wide transition-all duration-300 hover:bg-cream-100 hover:text-charcoal-800 active:scale-[0.98];
+  }
+
+  .card-image {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+
+  .divider {
+    @apply w-12 h-px bg-ember-500;
+  }
+}
