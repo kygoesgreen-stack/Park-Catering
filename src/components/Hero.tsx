@@ -22,10 +22,19 @@ export function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.playbackRate = 0.75
-      videoRef.current.play().catch(() => {})
+    const initVideo = () => {
+      if (videoRef.current) {
+        videoRef.current.muted = true
+        videoRef.current.play().then(() => {
+          if (videoRef.current) {
+            videoRef.current.playbackRate = 0.75
+          }
+        }).catch(() => {})
+      }
     }
+    initVideo()
+    document.addEventListener('touchstart', initVideo, { once: true })
+    document.addEventListener('click', initVideo, { once: true })
   }, [])
 
   return (
@@ -47,13 +56,18 @@ export function Hero() {
         controls={false}
         controlsList="nodownload nofullscreen"
         className="absolute inset-0 w-full h-full object-cover"
-        poster="/images/hero-poster.jpg"
         preload="auto"
         aria-hidden="true"
         style={{ WebkitTouchCallout: 'none' }}
       >
         <source src={hero.videoPlaceholder} type="video/mp4" />
       </video>
+
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{ backgroundImage: 'url(/images/hero-poster.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
+        aria-hidden="true"
+      />
 
       <motion.div
         variants={stagger.container}
