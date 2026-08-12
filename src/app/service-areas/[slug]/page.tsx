@@ -126,7 +126,7 @@ export default async function CityPage({ params }: { params: Promise<{ slug: str
           heading={`Catering in ${city.city}, ${city.state}`}
           subheading="Ready to plan your event? Tell us what you need and we will make it happen."
           primaryCta={{ label: 'Get a Free Quote', href: '/contact/' }}
-          secondaryCta={{ label: 'Call (406) 758-1234', href: 'tel:+14067581234' }}
+          secondaryCta={{ label: 'Call (406) 555-0100', href: 'tel:+14065550100' }}
         />
       </main>
     </>

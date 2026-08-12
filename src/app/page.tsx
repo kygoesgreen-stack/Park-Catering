@@ -13,7 +13,7 @@ import { site } from '@/config/site'
 
 export const metadata: Metadata = {
   title: 'Catering in Kalispell, MT | Park Catering',
-  description: 'Full-service catering in Kalispell, MT for weddings, corporate events, and private gatherings. Family-owned since 2004. Call (406) 758-1234 for a free consultation.',
+  description: 'Full-service catering in Kalispell, MT for weddings, corporate events, and private gatherings. Fire-line standards applied to every event.',
   alternates: { canonical: new URL('/', site.url) },
   openGraph: {
     title: 'Catering in Kalispell, MT | Park Catering',
@@ -39,7 +39,7 @@ export default function HomePage() {
         heading="Ready to Talk About Your Event?"
         subheading="Whether you are planning a wedding, corporate retreat, or private gathering, we are here to help."
         primaryCta={{ label: 'Get a Free Quote', href: '/contact/' }}
-        secondaryCta={{ label: 'Call (406) 758-1234', href: 'tel:+14067581234' }}
+        secondaryCta={{ label: 'Call (406) 555-0100', href: 'tel:+14065550100' }}
       />
     </>
   )

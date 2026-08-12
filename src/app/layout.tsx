@@ -87,6 +87,7 @@ const jsonLd = {
   email: site.email,
   address: {
     '@type': 'PostalAddress',
+    streetAddress: site.address.street || undefined,
     addressLocality: site.address.city,
     addressRegion: site.address.state,
     postalCode: site.address.zip,
@@ -97,20 +98,8 @@ const jsonLd = {
     latitude: site.geo.lat,
     longitude: site.geo.lng,
   },
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '08:00',
-      closes: '17:00',
-    },
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Saturday'],
-      opens: '09:00',
-      closes: '14:00',
-    },
-  ],
+  // TODO: Remove or update business hours - during fire season everyone is on assignment
+  // openingHoursSpecification: [...],
   areaServed: [
     { '@type': 'City', name: 'Kalispell', containedInPlace: { '@type': 'State', name: 'Montana' } },
     { '@type': 'City', name: 'Whitefish', containedInPlace: { '@type': 'State', name: 'Montana' } },

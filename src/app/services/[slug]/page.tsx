@@ -156,7 +156,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           heading={`Ready to Book ${service.title}?`}
           subheading="Tell us about your event and we will build a menu that fits."
           primaryCta={{ label: 'Get a Free Quote', href: '/contact/' }}
-          secondaryCta={{ label: 'Call (406) 758-1234', href: 'tel:+14067581234' }}
+          secondaryCta={{ label: 'Call (406) 555-0100', href: 'tel:+14065550100' }}
         />
       </main>
     </>

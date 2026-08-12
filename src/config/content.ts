@@ -26,7 +26,7 @@ export const nav = {
     { label: 'Gallery', href: '/gallery/' },
     { label: 'Contact', href: '/contact/' },
   ],
-  cta: { label: 'Book a Tasting', href: '/contact/' },
+  cta: { label: 'Contact Us', href: '/contact/' },
 } as const
 
 // -----------------------------------------------
@@ -35,8 +35,8 @@ export const nav = {
 
 export const hero = {
   headline: 'Fed the front lines.',
-  subheadline: 'Catering yours next.',
-  body: 'For years, we\'ve fed the crews holding the line on Montana\'s wildfires. Same standards, same care, now at your wedding, corporate event, or private gathering.',
+  subheadline: 'Catering built for the field. Refined for your event.',
+  body: 'We built this operation to feed 500 people a hot meal in a dirt lot at the end of a fire road, on schedule, with no power and no kitchen. A wedding at a Montana venue is not harder than that. It is just prettier.',
   ctas: [
     { label: 'Get a Free Quote', href: '/contact/', variant: 'primary' as const },
     { label: 'See Our Menu', href: '/menu/', variant: 'secondary' as const },
@@ -48,16 +48,18 @@ export const story = {
   eyebrow: 'Our Story',
   headline: 'Family roots. Fire-line standards.',
   paragraphs: [
-    'Park Catering started the way many Montana businesses do: out of necessity, with no time for shortcuts. In 2004, the Park family began providing hot meals to wildland firefighter crews working the rugged terrain around Glacier National Park. When you\'re feeding people who\'ve been on the fire line for 16 hours, there\'s no room for "good enough."',
-    'Two decades later, those same standards define everything we do. Our kitchen runs on the same discipline: fresh, locally sourced ingredients, high-volume execution without sacrificing quality, and food that people actually want to eat after a long, hard day.',
+    'Park Catering started the way many Montana businesses do: out of necessity, with no time for shortcuts. The Park family began providing hot meals to wildland firefighter crews working the rugged terrain around Glacier National Park. When you\'re feeding people who\'ve been on the fire line for 16 hours, there\'s no room for "good enough."',
+    'That same discipline defines everything we do. Our kitchen runs on the same standards: fresh, locally sourced ingredients, high-volume execution without sacrificing quality, and food that people actually want to eat after a long, hard day.',
     'We\'re now bringing that commitment to the Flathead Valley\'s most meaningful gatherings: weddings under the Mission Mountains, corporate retreats near Whitefish, and private celebrations that deserve more than reheated catering.',
   ],
   pullQuote: {
-    text: 'When you\'ve cooked 800 meals at 4,000 feet elevation for crews who can\'t afford a bad meal, your standards don\'t change, they just find a new audience.',
+    // TODO: Replace with real quote from family member
+    text: 'Our kitchen is mobile and comes to you. That\'s the advantage.',
     attribution: 'The Park Family',
   },
   imageFilename: 'story-family-kitchen.jpg',
-  imageAlt: 'The Park family in their Kalispell commercial kitchen',
+  // TODO: Replace with real photo of mobile kitchen units
+  imageAlt: 'Park Catering mobile kitchen units staged for deployment',
 } as const
 
 export const services = {
@@ -69,9 +71,10 @@ export const services = {
     {
       title: 'Wildfire Crews',
       description:
-        'High-volume, field-ready meals for crews working the line in Montana\'s backcountry. We understand the logistics, the timing, and the nutritional needs. Hot food, delivered on schedule, every time.',
+        'Tier 3 mobile food service unit. Rated capacity: 400 to 500 personnel per meal service. We mobilize to incidents and operate full food service camps under Emergency Equipment Rental Agreements.',
       imageFilename: 'gallery-chef-kitchen.jpg',
-      imageAlt: 'Chef in commercial kitchen preparing meals',
+      // TODO: Replace with real photo of fire camp setup
+      imageAlt: 'Park Catering mobile kitchen unit deployed at fire camp',
       cta: { label: 'Inquire: Crew Catering', href: '/services/wildfire-crew-catering/' },
     },
     {
@@ -85,7 +88,7 @@ export const services = {
     {
       title: 'Private & Corporate',
       description:
-        'Retreats, galas, company picnics, and private dinners. We handle events from 20 to 400, with full setup, breakdown, and everything in between.',
+        'Retreats, galas, company picnics, and private dinners. We handle events from 20 to 400 guests, with full setup, breakdown, and everything in between.',
       imageFilename: 'gallery-wedding-indoor.jpg',
       imageAlt: 'Elegant indoor event setup with floral arrangements',
       cta: { label: 'Inquire: Private & Corporate', href: '/services/corporate-event-catering/' },
@@ -107,7 +110,8 @@ export const menu = {
     },
     {
       name: 'Plated Dinners',
-      items: ['Herb-crusted elk medallions', 'Seared salmon', 'Duck breast', 'Prime rib', 'Vegetarian Wellington'],
+      // TODO: Verify wild game items with Montana DPHHS before publishing
+      items: ['Seared salmon', 'Prime rib', 'Chicken breast', 'Vegetarian Wellington'],
       imageFilename: 'menu-plated.jpg',
       imageAlt: 'Elegant plated dinner with seasonal vegetables',
     },
@@ -119,7 +123,8 @@ export const menu = {
     },
     {
       name: 'Hors d\'oeuvres',
-      items: ['Elk chorizo bites', 'Bison carpaccio crostini', 'Smoked trout puffs', 'Wild mushroom tarts', 'Huckleberry Brie cups'],
+      // TODO: Verify wild game items with Montana DPHHS before publishing
+      items: ['Bruschetta', 'Caprese skewers', 'Stuffed mushrooms', 'Wild mushroom tarts', 'Huckleberry Brie cups'],
       imageFilename: 'menu-hors-doevres.jpg',
       imageAlt: 'Artful hors d\'oeuvres display',
     },
@@ -131,10 +136,11 @@ export const gallery = {
   eyebrow: 'Gallery',
   headline: 'Moments from the kitchen to the event.',
   images: [
-    { filename: 'gallery-wedding-lake.jpg', alt: 'Elegant outdoor wedding reception by the lake at sunset' },
-    { filename: 'gallery-wedding-indoor.jpg', alt: 'Beautiful indoor wedding reception with floral arrangements' },
-    { filename: 'gallery-wedding-reception.jpg', alt: 'Outdoor wedding reception tables during golden hour' },
-    { filename: 'gallery-chef-kitchen.jpg', alt: 'Chef in commercial kitchen preparing gourmet meals' },
+    // TODO: Replace all stock photos with real photos of Park Catering units and events
+    { filename: 'gallery-wedding-lake.jpg', alt: 'Outdoor event setup by the lake at sunset' },
+    { filename: 'gallery-wedding-indoor.jpg', alt: 'Indoor event setup with floral arrangements' },
+    { filename: 'gallery-wedding-reception.jpg', alt: 'Outdoor event tables during golden hour' },
+    { filename: 'gallery-chef-kitchen.jpg', alt: 'Kitchen team preparing food for large event' },
     { filename: 'gallery-event-prep.jpg', alt: 'Kitchen team preparing food for large event' },
     { filename: 'gallery-brisket.jpg', alt: 'Slow-smoked brisket being sliced for service' },
     { filename: 'gallery-smoked-meat.jpg', alt: 'Smoked beef brisket on wooden cutting board' },
@@ -146,26 +152,9 @@ export const gallery = {
 export const testimonials = {
   eyebrow: 'Testimonials',
   headline: 'What our clients say.',
-  items: [
-    {
-      quote:
-        'Park Catering has been feeding our Type 1 hand crews for six seasons. When you\'re in the field for 16 hours, that hot meal at the end of the day isn\'t a luxury, it\'s everything. Their food has gotten us through some of the hardest fires in the Northern Rockies.',
-      attribution: 'Crew Boss, Montana Department of Natural Resources',
-      role: 'Wildland Fire Crew',
-    },
-    {
-      quote:
-        'We had 180 guests at our wedding at Flathead Lake. Every single person, from the vegetarian college roommate to the steak-and-potatoes uncle, raved about the food. Park treated our wedding like they treat the fire line: no shortcuts, no excuses.',
-      attribution: 'Sarah & James K.',
-      role: 'Wedding Client, August 2024',
-    },
-    {
-      quote:
-        'We hired Park for our company retreat up at Whitefish Mountain. 60 people, three days. They handled everything, setup, service, cleanup. The food was the one thing on the agenda that nobody complained about. Which, in corporate retreat terms, is a home run.',
-      attribution: 'Director of Operations, Outdoor Recreation Company',
-      role: 'Corporate Retreat',
-    },
-  ],
+  // TODO: All previous testimonials were fabricated. Delete this section or add real testimonials only.
+  // Never publish a testimonial without written permission from the actual customer.
+  items: [] as { quote: string; attribution: string; role: string }[],
 } as const
 
 export const faq = {
@@ -175,17 +164,17 @@ export const faq = {
     {
       question: 'How far in advance should I book?',
       answer:
-        'For weddings and large events, we recommend reaching out 6 to 12 months in advance, especially for peak summer and fall dates in the Flathead Valley. Smaller private events can often be accommodated with 4 to 6 weeks notice, depending on availability. Fire crew contracts are typically arranged seasonally.',
+        'For weddings and large events, we recommend reaching out 6 to 12 months in advance, especially for peak summer and fall dates in the Flathead Valley. Smaller private events can often be accommodated with 4 to 6 weeks notice, depending on availability. Fire crew catering is dispatched through agency resource ordering systems.',
     },
     {
       question: 'Do you have minimum headcount requirements?',
       answer:
-        'For private events and weddings, our minimum is typically 20 guests. For smaller gatherings, we\'re happy to discuss options, reach out and we\'ll figure out what works. Fire crew catering has no minimum; we feed whoever needs feeding.',
+        'For private events and weddings, our minimum is typically 20 guests. For smaller gatherings, we\'re happy to discuss options, reach out and we\'ll figure out what works.',
     },
     {
       question: 'What is your service area?',
       answer:
-        'We\'re based in Kalispell and serve the greater Flathead Valley, including Whitefish, Bigfork, Lakeside, and the Glacier National Park corridor. For events outside this area, reach out, we can often make it work, and travel fees apply beyond 50 miles.',
+        'We\'re based in Kalispell and serve the greater Flathead Valley, including Whitefish, Bigfork, Lakeside, and the Glacier National Park corridor. For events outside this area, reach out, we can often make it work.',
     },
     {
       question: 'Can you accommodate dietary restrictions?',
@@ -195,12 +184,12 @@ export const faq = {
     {
       question: 'Do you provide rentals, linens, and setup?',
       answer:
-        'Yes. We offer full-service event coordination including rentals, linens, tables, and staffing. We partner with trusted local vendors for equipment and can recommend vendors we trust for anything beyond our own inventory.',
+        'We handle setup and service. For rentals, linens, and tables, we can help you source from local vendors we trust.',
     },
     {
       question: 'What is your pricing structure?',
       answer:
-        'Pricing is event-specific and depends on menu, headcount, service style, and logistics. Fire crew catering is typically priced per-person-per-day. Private events and weddings are quoted after a menu consultation. We\'re happy to share ballpark ranges over a call before a formal consultation.',
+        'Pricing is event-specific and depends on menu, headcount, service style, and logistics. Fire crew catering rates are set under our Emergency Equipment Rental Agreement (EERA) and available on request. Private events and weddings are quoted after a menu consultation.',
     },
   ],
 } as const

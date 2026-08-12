@@ -8,6 +8,11 @@ import { FadeIn } from '@/components/animations'
 export function Testimonials() {
   const [current, setCurrent] = useState(0)
 
+  // Don't render if no testimonials
+  if (testimonials.items.length === 0) {
+    return null
+  }
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((c) => (c + 1) % testimonials.items.length)

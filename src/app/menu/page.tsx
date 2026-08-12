@@ -9,7 +9,7 @@ import { FadeIn } from '@/components/animations'
 
 export const metadata: Metadata = {
   title: 'Catering Menus in the Flathead Valley | Park Catering',
-  description: 'Explore our catering menus: BBQ and smoked, plated dinners, buffet, and hors d\'oeuvres. Custom menus for every event. Call (406) 758-1234.',
+  description: 'Explore our catering menus: BBQ and smoked, plated dinners, buffet, and hors d\'oeuvres. Custom menus for every event.',
   alternates: { canonical: new URL('/menu/', site.url) },
 }
 
@@ -61,7 +61,7 @@ export default function MenuPage() {
         heading="Ready to Build Your Menu?"
         subheading="Tell us about your event and we will create a custom menu that fits your taste and budget."
         primaryCta={{ label: 'Request Full Menu', href: '/contact/' }}
-        secondaryCta={{ label: 'Call (406) 758-1234', href: 'tel:+14067581234' }}
+        secondaryCta={{ label: 'Call (406) 555-0100', href: 'tel:+14065550100' }}
       />
     </>
   )

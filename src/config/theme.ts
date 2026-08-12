@@ -37,7 +37,8 @@ export const seo = {
   phone: site.phone,
   email: site.email,
   address: site.address,
-  openingHours: 'Mo-Fr 08:00-17:00, Sa 09:00-14:00',
+  // TODO: Remove or update business hours - during fire season everyone is on assignment
+  // openingHours: 'Mo-Fr 08:00-17:00, Sa 09:00-14:00',
   priceRange: '$$',
   image: '/og-image.jpg',
 }

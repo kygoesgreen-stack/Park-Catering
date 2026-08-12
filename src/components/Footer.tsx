@@ -59,8 +59,6 @@ export function Footer() {
                 <li><Link href="/gallery/" className="text-sm text-cream-200/50 hover:text-cream-50 font-sans transition-colors">Gallery</Link></li>
                 <li><Link href="/contact/" className="text-sm text-cream-200/50 hover:text-cream-50 font-sans transition-colors">Contact</Link></li>
               </ul>
-              <p className="text-xs font-sans font-medium tracking-[0.15em] uppercase text-ember-500 mt-6 mb-2">Hours</p>
-              <p className="text-sm text-cream-200/40 font-sans">{site.hours}</p>
             </div>
           </FadeIn>
         </div>

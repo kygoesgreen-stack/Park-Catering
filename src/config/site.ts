@@ -1,10 +1,13 @@
 export const site = {
-  url: "https://parkcateringmt.com", // TODO: confirm final domain before launch
+  // TODO: Replace with real domain once registered. Currently deployed at park-catering.pages.dev
+  url: "https://park-catering.pages.dev",
   name: "Park Catering",
   description: "Family-owned catering in Kalispell, MT. High-volume, no-shortcuts cooking for wildland firefighter crews, now serving weddings, corporate events, and private gatherings across the Flathead Valley and Glacier region.",
-  phone: "+14067581234", // TODO: VERIFY. (406) 758-1234 looks like a placeholder. Must match GBP exactly.
-  phoneDisplay: "(406) 758-1234", // TODO: verify
-  email: "hello@parkcateringmt.com", // TODO: confirm this inbox exists and is monitored
+  // TODO: Replace with real phone number
+  phone: "+14065550100",
+  phoneDisplay: "(406) 555-0100",
+  // TODO: Replace with real email address
+  email: "info@park-catering.pages.dev",
   address: {
     street: "", // TODO: real street address, or leave empty and treat as service-area business
     city: "Kalispell",
@@ -12,10 +15,12 @@ export const site = {
     zip: "59901",
   },
   geo: { lat: 48.1958, lng: -114.3161 }, // Kalispell, MT
-  hours: "Mon to Fri 8:00am to 5:00pm, Sat 9:00am to 2:00pm", // TODO: verify against GBP
+  // TODO: Remove or update business hours - during fire season everyone is on assignment
+  hours: "",
   serviceArea: "Flathead Valley and Glacier National Park Region",
   social: {
-    instagram: "https://instagram.com/parkcateringmt", // TODO: verify these accounts exist
+    // TODO: Verify these accounts exist before publishing
+    instagram: "https://instagram.com/parkcateringmt",
     facebook: "https://facebook.com/parkcateringmt",
   },
   gbpUrl: "", // TODO: Google Business Profile / Maps link

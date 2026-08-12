@@ -7,7 +7,7 @@ import { FadeIn } from '@/components/animations'
 
 export const metadata: Metadata = {
   title: 'About Park Catering | Family-Owned Catering in Kalispell, MT',
-  description: 'Learn about Park Catering, a family-owned catering company in Kalispell, MT serving weddings, corporate events, and wildfire crews since 2004.',
+  description: 'Learn about Park Catering, a family-owned catering company in Kalispell, MT serving weddings, corporate events, and wildfire crews.',
   alternates: { canonical: new URL('/about/', site.url) },
 }
 

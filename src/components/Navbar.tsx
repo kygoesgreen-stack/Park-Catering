@@ -224,11 +224,11 @@ export function Navbar() {
                 )
               ))}
               <a
-                href="tel:+14067581234"
+            href="tel:+14065550100"
                 className="text-cream-100 font-sans font-medium text-lg py-2"
                 onClick={() => setMobileOpen(false)}
               >
-                (406) 758-1234
+          (406) 555-0100
               </a>
               <Link
                 href={nav.cta.href}
