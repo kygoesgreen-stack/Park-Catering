@@ -1,7 +1,10 @@
 import type { Metadata } from 'next'
 import { Fraunces, Inter } from 'next/font/google'
-import { site, nav, footer } from '@/config/content'
+import { site } from '@/config/site'
 import { seo } from '@/config/theme'
+import { Navbar } from '@/components/Navbar'
+import { Footer } from '@/components/Footer'
+import { MobileStickyBar } from '@/components/MobileStickyBar'
 import './globals.css'
 
 const fraunces = Fraunces({
@@ -49,7 +52,7 @@ export const metadata: Metadata = {
         url: seo.image,
         width: 1200,
         height: 630,
-        alt: `${site.name} — ${site.tagline}`,
+        alt: `${site.name} - Catering in Kalispell, MT`,
       },
     ],
   },
@@ -74,85 +77,53 @@ export const metadata: Metadata = {
 
 const jsonLd = {
   '@context': 'https://schema.org',
-  '@graph': [
+  '@type': 'LocalBusiness',
+  additionalType: 'https://en.wikipedia.org/wiki/Catering',
+  '@id': `${site.url}/#business`,
+  name: site.name,
+  description: site.description,
+  url: site.url,
+  telephone: site.phone,
+  email: site.email,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.address.city,
+    addressRegion: site.address.state,
+    postalCode: site.address.zip,
+    addressCountry: 'US',
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: site.geo.lat,
+    longitude: site.geo.lng,
+  },
+  openingHoursSpecification: [
     {
-      '@type': 'CateringCompany',
-      '@id': `${seo.url}/#organization`,
-      name: site.name,
-      description: seo.description,
-      url: seo.url,
-      telephone: seo.phone,
-      email: seo.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: seo.address.street,
-        addressLocality: seo.address.city,
-        addressRegion: seo.address.state,
-        postalCode: seo.address.zip,
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 48.1958,
-        longitude: -114.316,
-      },
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '17:00',
-      },
-      sameAs: [site.social.instagram, site.social.facebook],
-      priceRange: seo.priceRange,
-      image: `${seo.url}${seo.image}`,
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '08:00',
+      closes: '17:00',
     },
     {
-      '@type': 'LocalBusiness',
-      '@id': `${seo.url}/#localbusiness`,
-      name: site.name,
-      description: seo.description,
-      url: seo.url,
-      telephone: seo.phone,
-      email: seo.email,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: seo.address.street,
-        addressLocality: seo.address.city,
-        addressRegion: seo.address.state,
-        postalCode: seo.address.zip,
-        addressCountry: 'US',
-      },
-      geo: {
-        '@type': 'GeoCoordinates',
-        latitude: 48.1958,
-        longitude: -114.316,
-      },
-      openingHoursSpecification: {
-        '@type': 'OpeningHoursSpecification',
-        dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-        opens: '08:00',
-        closes: '17:00',
-      },
-      priceRange: seo.priceRange,
-    },
-    {
-      '@type': 'Service',
-      '@id': `${seo.url}/#service`,
-      name: 'Catering Services',
-      provider: { '@id': `${seo.url}/#organization` },
-      description: 'Professional catering for weddings, corporate events, private gatherings, and wildland fire crews in the Flathead Valley and Glacier region.',
-      areaServed: {
-        '@type': 'Place',
-        name: 'Flathead Valley, Montana',
-      },
-      serviceType: [
-        'Wedding Catering',
-        'Corporate Event Catering',
-        'Private Event Catering',
-        'Wildfire Crew Catering',
-      ],
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Saturday'],
+      opens: '09:00',
+      closes: '14:00',
     },
   ],
+  areaServed: [
+    { '@type': 'City', name: 'Kalispell', containedInPlace: { '@type': 'State', name: 'Montana' } },
+    { '@type': 'City', name: 'Whitefish', containedInPlace: { '@type': 'State', name: 'Montana' } },
+    { '@type': 'City', name: 'Bigfork', containedInPlace: { '@type': 'State', name: 'Montana' } },
+    { '@type': 'City', name: 'Lakeside', containedInPlace: { '@type': 'State', name: 'Montana' } },
+    { '@type': 'City', name: 'Columbia Falls', containedInPlace: { '@type': 'State', name: 'Montana' } },
+    { '@type': 'Place', name: 'Flathead County' },
+  ],
+  sameAs: [site.social.instagram, site.social.facebook],
+  priceRange: seo.priceRange,
+  image: `${seo.url}${seo.image}`,
+  // TODO: Add aggregateRating once real Google review count is provided by the owner.
+  // Example: aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" }
 }
 
 export default function RootLayout({
@@ -166,6 +137,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${inter.variable}`}
     >
       <head>
+        {/* TODO: GSC verification meta tag */}
         <link
           rel="icon"
           href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%231a2e1a'/><text x='50%25' y='50%25' dominant-baseline='central' text-anchor='middle' font-size='18' fill='%23c85a1e' font-family='serif'>P</text></svg>"
@@ -175,7 +147,12 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <Navbar />
+        {children}
+        <Footer />
+        <MobileStickyBar />
+      </body>
     </html>
   )
 }

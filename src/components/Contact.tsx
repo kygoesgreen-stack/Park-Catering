@@ -1,22 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { useFormStatus } from 'react-dom'
 import { contact as contactConfig, site } from '@/config/content'
 import { FadeIn } from '@/components/animations'
-
-function SubmitButton() {
-  const { pending } = useFormStatus()
-  return (
-    <button
-      type="submit"
-      disabled={pending}
-      className="btn-primary w-full sm:w-auto disabled:opacity-60 disabled:cursor-not-allowed"
-    >
-      {pending ? contactConfig.formFields.submitting : contactConfig.formFields.submit}
-    </button>
-  )
-}
 
 export function Contact() {
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle')
@@ -27,7 +13,7 @@ export function Contact() {
     const data = new FormData(form)
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         body: JSON.stringify(Object.fromEntries(data)),
         headers: { 'Content-Type': 'application/json' },
@@ -63,10 +49,10 @@ export function Contact() {
                 <div>
                   <p className="eyebrow text-cream-200/50 mb-3">Call us</p>
                   <a
-                    href={`tel:${site.phone.replace(/\D/g, '')}`}
+                    href={`tel:${site.phone}`}
                     className="text-cream-50 font-sans text-lg hover:text-ember-500 transition-colors duration-200"
                   >
-                    {site.phone}
+                    {site.phoneDisplay}
                   </a>
                 </div>
                 <div>
@@ -104,6 +90,18 @@ export function Contact() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} noValidate className="space-y-6">
+                  {/* Honeypot field - visually hidden */}
+                  <div className="absolute opacity-0 h-0 w-0 overflow-hidden" aria-hidden="true">
+                    <label htmlFor="honeypot">Leave this empty</label>
+                    <input
+                      type="text"
+                      id="honeypot"
+                      name="honeypot"
+                      tabIndex={-1}
+                      autoComplete="off"
+                    />
+                  </div>
+
                   <div className="grid sm:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="name" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
@@ -126,7 +124,6 @@ export function Contact() {
                         type="email"
                         id="email"
                         name="email"
-                        required
                         autoComplete="email"
                         className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 placeholder-cream-200/30 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200"
                       />
@@ -142,22 +139,23 @@ export function Contact() {
                         type="tel"
                         id="phone"
                         name="phone"
+                        required
                         autoComplete="tel"
                         className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 placeholder-cream-200/30 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200"
                       />
                     </div>
                     <div>
-                      <label htmlFor="eventType" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
-                        {contactConfig.formFields.eventType.label}
+                      <label htmlFor="service" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
+                        {contactConfig.formFields.service.label}
                       </label>
                       <select
-                        id="eventType"
-                        name="eventType"
+                        id="service"
+                        name="service"
                         required
                         className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200 [&>option]:bg-charcoal-800"
                       >
                         <option value="">Select...</option>
-                        {contactConfig.formFields.eventType.options.map((opt) => (
+                        {contactConfig.formFields.service.options.map((opt) => (
                           <option key={opt} value={opt}>{opt}</option>
                         ))}
                       </select>
@@ -165,6 +163,21 @@ export function Contact() {
                   </div>
 
                   <div className="grid sm:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="city" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
+                        {contactConfig.formFields.city.label}
+                      </label>
+                      <select
+                        id="city"
+                        name="city"
+                        className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200 [&>option]:bg-charcoal-800"
+                      >
+                        <option value="">Select...</option>
+                        {contactConfig.formFields.city.options.map((opt) => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    </div>
                     <div>
                       <label htmlFor="date" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
                         {contactConfig.formFields.date}
@@ -176,18 +189,19 @@ export function Contact() {
                         className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200"
                       />
                     </div>
-                    <div>
-                      <label htmlFor="headcount" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
-                        {contactConfig.formFields.headcount}
-                      </label>
-                      <input
-                        type="number"
-                        id="headcount"
-                        name="headcount"
-                        min="1"
-                        className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 placeholder-cream-200/30 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200"
-                      />
-                    </div>
+                  </div>
+
+                  <div>
+                    <label htmlFor="headcount" className="block text-sm font-sans font-medium text-cream-200/70 mb-2">
+                      {contactConfig.formFields.headcount}
+                    </label>
+                    <input
+                      type="number"
+                      id="headcount"
+                      name="headcount"
+                      min="1"
+                      className="w-full px-4 py-3 bg-charcoal-700 border border-charcoal-600/40 text-cream-50 placeholder-cream-200/30 font-sans text-sm focus:outline-none focus:border-ember-500 transition-colors duration-200"
+                    />
                   </div>
 
                   <div>
@@ -207,7 +221,12 @@ export function Contact() {
                     <p className="text-sm text-red-400 font-sans">{contactConfig.formFields.error}</p>
                   )}
 
-                  <SubmitButton />
+                  <button
+                    type="submit"
+                    className="btn-primary w-full sm:w-auto"
+                  >
+                    {contactConfig.formFields.submit}
+                  </button>
                 </form>
               )}
             </div>

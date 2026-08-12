@@ -1,6 +1,5 @@
 'use client'
 
-import { useRef, useEffect } from 'react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { hero } from '@/config/content'
@@ -19,24 +18,6 @@ const stagger = {
 }
 
 export function Hero() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const initVideo = () => {
-      if (videoRef.current) {
-        videoRef.current.muted = true
-        videoRef.current.play().then(() => {
-          if (videoRef.current) {
-            videoRef.current.playbackRate = 0.75
-          }
-        }).catch(() => {})
-      }
-    }
-    initVideo()
-    document.addEventListener('touchstart', initVideo, { once: true })
-    document.addEventListener('click', initVideo, { once: true })
-  }, [])
-
   return (
     <section
       id="hero"
@@ -45,29 +26,14 @@ export function Hero() {
     >
       <div className="absolute inset-0 bg-charcoal-900/60 z-10" aria-hidden="true" />
 
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        webkit-playsInline="true"
-        disablePictureInPicture
-        controls={false}
-        controlsList="nodownload nofullscreen"
-        className="absolute inset-0 w-full h-full object-cover"
-        preload="auto"
-        aria-hidden="true"
-        style={{ WebkitTouchCallout: 'none' }}
-      >
-        <source src={hero.videoPlaceholder} type="video/mp4" />
-      </video>
-
-      <div 
-        className="absolute inset-0 z-0" 
-        style={{ backgroundImage: 'url(/images/hero-poster.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}
-        aria-hidden="true"
-      />
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/images/hero-poster.jpg"
+          alt=""
+          className="w-full h-full object-cover"
+          fetchPriority="high"
+        />
+      </div>
 
       <motion.div
         variants={stagger.container}
@@ -81,11 +47,19 @@ export function Hero() {
 
         <motion.h1
           variants={stagger.item}
+          className="sr-only"
+        >
+          Catering in Kalispell, MT
+        </motion.h1>
+
+        <motion.p
+          variants={stagger.item}
           className="font-serif font-light leading-[1.02] mb-6 md:mb-8"
           style={{ fontSize: 'clamp(2.5rem, 8vw + 1rem, 7rem)' }}
+          aria-hidden="true"
         >
           {hero.headline}
-        </motion.h1>
+        </motion.p>
 
         <motion.p
           variants={stagger.item}

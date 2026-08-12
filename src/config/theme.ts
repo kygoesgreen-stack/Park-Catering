@@ -1,4 +1,4 @@
-import { site } from '@/config/content'
+import { site } from '@/config/site'
 
 export const colors = {
   forest: {
@@ -30,8 +30,8 @@ export const colors = {
 } as const
 
 export const seo = {
-  titleTemplate: `%s — ${site.name}`,
-  defaultTitle: `${site.name} | Catering — Kalispell, MT`,
+  titleTemplate: `%s | ${site.name}`,
+  defaultTitle: `${site.name} | Catering in Kalispell, MT`,
   description: site.description,
   url: site.url,
   phone: site.phone,
