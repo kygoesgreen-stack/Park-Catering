@@ -160,10 +160,10 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <a
-            href="tel:+14067581234"
+            href="tel:+14065550100"
             className="px-4 py-2 text-sm text-cream-100/80 hover:text-cream-50 font-sans font-medium tracking-wide border border-cream-100/20 hover:border-cream-100/40 transition-colors duration-200"
           >
-            (406) 758-1234
+            (406) 555-0100
           </a>
           <Link
             href={nav.cta.href}
