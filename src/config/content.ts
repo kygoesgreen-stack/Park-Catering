@@ -12,6 +12,7 @@ export const site = {
   url: 'https://park-catering.pages.dev',
   // TODO: Replace with real phone number
   phone: '(406) 758-1234',
+  phoneDisplay: '(406) 758-1234',
   // TODO: Replace with real email address
   email: 'info@park-catering.pages.dev',
   address: {
