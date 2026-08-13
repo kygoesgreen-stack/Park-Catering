@@ -48,12 +48,22 @@ export function Services() {
 
                 {/* Text content positioned at bottom */}
                 <div className="absolute inset-0 flex flex-col justify-end p-8">
-                  <h3 className="font-serif text-cream-50 text-3xl mb-3 tracking-tight">
+                  <h3 className="font-serif text-cream-50 text-3xl mb-2 tracking-tight">
                     {card.title}
                   </h3>
-                  <p className="text-cream-100/80 text-base leading-relaxed mb-6 line-clamp-4">
+                  <p className="text-cream-100/70 text-sm leading-relaxed mb-4">
                     {card.description}
                   </p>
+                  {card.highlights && (
+                    <ul className="space-y-1.5 mb-5">
+                      {card.highlights.map((item) => (
+                        <li key={item} className="flex items-center gap-2 text-cream-50/90 text-sm font-sans">
+                          <span className="w-1 h-1 rounded-full bg-ember-500 flex-shrink-0" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                   <Link
                     href={card.cta.href}
                     className="inline-flex items-center gap-2 text-sm font-sans font-medium text-ember-500 hover:text-ember-400 transition-colors duration-200 tracking-wide group/link"
